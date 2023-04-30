@@ -17,8 +17,16 @@ namespace Lab3_Crisitan_Villela
     {
         public class User
         {
-            
-        }
+            public long dpi { get; set; }
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public DateTime BirthDate { get; set; }
+            public string Job { get; set; }
+            public string PlaceJob { get; set; }
+            public int Salary
+            {
+                get; set;
+            }
 
 
         public class Customer
