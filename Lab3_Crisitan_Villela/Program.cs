@@ -46,7 +46,35 @@ namespace Lab3_Crisitan_Villela
 
         static void Main(string[] args)
         {
-           
+            List<User> Usuario = new List<User>();
+            Acciones Actions;
+
+            string p = "C:\\Users\\Cristia Villela\\OneDrive\\Escritorio\\Lab3_Walter_Villatoro\\bin\\Debug\\netcoreapp3.1\\input_customer_challenge_lab_3.jsonl";
+            using (StreamReader leer = new StreamReader(p))
+            {
+                while (!leer.EndOfStream)
+                {
+                    string linea = leer.ReadLine();
+                    User persona = new User();
+                    persona = JsonConvert.DeserializeObject<User>(linea);
+                    Usuario.Add(persona);
+                }
+            }
+            string p1 = "C:\\Users\\Cristia Villela\\OneDrive\\Escritorio\\Lab3_Walter_Villatoro\\bin\\Debug\\netcoreapp3.1\\Costumer.JSONL";
+            using (StreamReader leer = new StreamReader(p1))
+            {
+                string linea = leer.ReadToEnd();
+                Actions = JsonConvert.DeserializeObject<Acciones>(linea);
+            }
+
+            long[] DPI = Enumerable.Repeat(0L, Actions.Customers.Count).ToArray();
+            int[] BUDGETS = Actions.Customers.Select(c => c.Budget).ToArray();
+            int posicion = 0;
+
+
+
+
+
         }
     }
 }
