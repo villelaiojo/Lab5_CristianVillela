@@ -31,8 +31,11 @@ namespace Lab3_Crisitan_Villela
 
         public class Customer
         {
-            
-        }
+                public long dpi { get; set; }
+                public int Budget { get; set; }
+                public DateTime Date { get; set; }
+
+            }
 
         public class Acciones
         {
