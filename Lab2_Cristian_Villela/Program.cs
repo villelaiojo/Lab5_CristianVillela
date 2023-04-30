@@ -168,7 +168,54 @@ namespace Lab2_Cristian_Villela
 
                     }
 
-               
+                    var itemsOrdenadosHouses = from pair in sortHouses orderby pair.Value ascending select pair;
+
+                    foreach (var itemSortedHouses in itemsOrdenadosHouses)
+                    {
+                        Console.Write("[\" " + itemSortedHouses.Key + "\" ]" + ",");
+                    }
+
+                    Console.Write("\n");
+
+                }
+                else if (input.input2.typeBuilder == "Premises")
+                {
+                    foreach (var itemPremises in input.input1)
+                    {
+                        if (itemPremises.builds.Premises != null)
+                        {
+                            foreach (var item1Premises in itemPremises.builds.Premises)
+                            {
+                                foreach (var item2 in item1Premises.commercialActivities)
+                                {
+                                    if (input.input2.commercialActivity == item2)
+                                    {
+                                        if (item1Premises.price < input.input2.budget)
+                                        {
+                                            sortPremises.Add(item1Premises.id, item1Premises.price);
+                                        }
+                                        else { }
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+
+                    var itemsOrdenadosPremises = from pair in sortPremises orderby pair.Value ascending select pair;
+
+                    foreach (var itemSortedPremises in itemsOrdenadosPremises)
+                    {
+                        Console.Write("[\" " + itemSortedPremises.Key + "\" ]" + ",");
+                    }
+
+                    Console.Write("\n");
+
+                }
+                else
+                {
+                    Console.Write("[]");
+                }
 
 
             }
