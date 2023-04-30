@@ -27,7 +27,7 @@ namespace Lab3_Crisitan_Villela
             {
                 get; set;
             }
-
+        }
 
         public class Customer
         {
@@ -35,11 +35,13 @@ namespace Lab3_Crisitan_Villela
                 public int Budget { get; set; }
                 public DateTime Date { get; set; }
 
-            }
+        }
 
         public class Acciones
         {
-           
+            public string? Property { get; set; }
+            public List<Customer>? Customers { get; set; }
+            public int Rejection { get; set; }
         }
 
         static void Main(string[] args)
