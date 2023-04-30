@@ -71,6 +71,17 @@ namespace Lab3_Crisitan_Villela
             int[] BUDGETS = Actions.Customers.Select(c => c.Budget).ToArray();
             int posicion = 0;
 
+            foreach (var item in Actions.Customers)
+            {
+                DPI[posicion] = item.dpi;
+                posicion++;
+            }
+            posicion = 0;
+            foreach (var item in Actions.Customers)
+            {
+                BUDGETS[posicion] = item.Budget;
+                posicion++;
+            }
 
 
 
