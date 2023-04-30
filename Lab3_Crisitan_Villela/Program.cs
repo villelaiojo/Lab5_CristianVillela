@@ -15,6 +15,22 @@ namespace Lab3_Crisitan_Villela
 {
     class Program
     {
+        public class User
+        {
+            
+        }
+
+
+        public class Customer
+        {
+            
+        }
+
+        public class Acciones
+        {
+           
+        }
+
         static void Main(string[] args)
         {
            
