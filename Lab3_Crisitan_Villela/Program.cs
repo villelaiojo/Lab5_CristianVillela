@@ -82,8 +82,54 @@ namespace Lab3_Crisitan_Villela
                 BUDGETS[posicion] = item.Budget;
                 posicion++;
             }
+            for (int i = 0; i < DPI.Length - 1; i++)
+            {
+                for (int j = 0; j < DPI.Length - (1 + i); j++)
+                {
+                    if (BUDGETS[j] < BUDGETS[j + 1])
+                    {
+
+                        int tempBudget = BUDGETS[j];
+                        BUDGETS[j] = BUDGETS[j + 1];
+                        BUDGETS[j + 1] = tempBudget;
 
 
+                        long tempDPI = DPI[j];
+                        DPI[j] = DPI[j + 1];
+                        DPI[j + 1] = tempDPI;
+                    }
+                }
+            }
+            long Ganador = DPI[Actions.Rejection];
+            int budgetGanador = default;
+            DateTime FechaGanador = new DateTime();
+            foreach (var item in Actions.Customers)
+            {
+                if (Ganador == item.dpi)
+                {
+                    budgetGanador = item.Budget;
+                    FechaGanador = item.Date;
+                    break;
+                }
+            }
+            foreach (var item in Usuario)
+            {
+                if (Ganador == item.dpi)
+                {
+
+                   
+                    using (var sha256 = SHA384.Create())
+                    {
+                        byte[] hash = sha256.ComputeHash(UTF8Encoding.UTF8.GetBytes(item.PlaceJob));
+                        Console.WriteLine("{" + "\"dpi\":" + item.dpi + ",\"budget\":" + budgetGanador + ",\"date\":" + "\"" + FechaGanador + "\",\"firstName\":\"" + item.FirstName + "\",\"lastName:\"" + item.LastName + "\",\"birthDate\":\"" + item.BirthDate + "\",\"job\":\"" + item.Job + "\",\"placeJob\":\"" + item.PlaceJob + "\",\"salary\":" + item.Salary + ",\"property\":\"" + Actions.Property + "\",\"signature\":\"" + Convert.ToBase64String(hash) + "\"}");
+                        break;
+
+                    }
+
+                }
+
+            }
+            Console.ReadKey();
 
 
         }
