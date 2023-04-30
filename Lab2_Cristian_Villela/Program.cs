@@ -13,7 +13,13 @@ namespace Lab2_Cristian_Villela
     {
         static void Main(string[] args)
         {
-            
+            foreach (string line in System.IO.File.ReadLines(@"C:\Users\Cristia Villela\OneDrive\Escritorio\Lab5_CristianVillela\Lab2_Cristian_Villela\bin\Debug\netcoreapp3.1\input_challenge_lab_2.jsonl"))
+            {
+
+
+
+            }
+
         }
     }
 }
